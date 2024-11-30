@@ -1,113 +1,96 @@
 body{
-    background-color: black;
+    background-color: rgb(228, 209, 217);
+    padding: 2rem;
 }
-.vertical{
-    position: fixed;
-    height: 51rem;
-    width: 5.5rem;
-    background-color: rgb(63, 58, 58);
-    border-radius: 1rem;
+.container{
+    height: 93vh;
+    width: 100%;
+    border: 1px blue;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    
+}
+/* PARTIE ONE */
+.one{
+    
+    display: flex;
     flex-direction: column;
-    /* background-image: url(colorful-2174045_1280.webp);
-    background-size: cover; */
+    height: 93vh; 
+    width: 19%;
+    
+    border-radius: 0.5rem;
 }
-
-.vertical .icon{
+.carton-haut{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 2rem;
+    height: 69vh;
+    box-shadow: 0 0 15px rgb(133, 131, 131);
+}
+.mini-carton-haut{
+    height: 29vh;
+}
+.mini-carton-bas{
+    height: 29vh;
+}
+.carton-bas{
     margin-top: 2rem;
-    font-size: 2.5rem;
-    color: white;
+    background-color: white;
+    border-radius: 2rem;
+    height: 38vh;
+    box-shadow: 0 0 15px rgb(133, 131, 131);
 }
-/* .band{
-    height: 3rem;
-    width: 0.3rem;
-    background-color: rgb(63, 58, 58);
-    border-radius: 1rem;
-    margin-bottom: 2rem;
-} */
-
-/* CORP DE LA PAGE */
-.containeur{
-    display: flex;
-    margin-left: 6rem;
-    height: 51rem;
-    width: 99rem;
-    
-}
-.big-carton{
-    height: 42.5rem;
-    width: 82rem;
-    background-color: rgb(63, 58, 58);
-    border-radius: 1rem;
-    background-image: url(image-fon.webp);
-    background-size: cover;
-}
-.small-carton{
-    margin-left: 0.5rem;
-    height: 51rem;
-    width: 16.5rem;
-}
-.first-carton{
-    height: 21rem;
-    width: 16.5rem;
-    background-color: rgb(63, 58, 58);
-    border-radius: 1rem;
-}
-.second-carton{
-    margin-top: 0.5rem;
-    height: 29.5rem;
-    width: 16.5rem;
-    background-color: rgb(63, 58, 58);
-    border-radius: 1rem;
-}
-.image{
-    height: 100%;
-    width: 100%;
+/* PARTIE TWO */
+.two{
+    height: 93vh; 
+    width: 74%;
+    background-color: white;
+    border-radius: 2rem;
+    box-shadow: 0 0 15px rgb(133, 131, 131);
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
 }
-.image img{
-    /* position: absolute; */
-    
-    /* margin-top: 0.5rem; */
-    
-    height: 100%;
+.video-background {
     width: 100%;
+    height: 100%;
     object-fit: cover;
-    object-position: center;
-    border-radius: 1rem;
-    /* box-shadow: 0 0 10px rgb(13, 14, 14),
-                0 0 20px rgb(17, 17, 17),
-                0 0 40px rgb(7, 7, 7),
-                0 0 80px rgb(5, 5, 5); */
-    cursor: pointer;
-    transition: 1s linear;
+    z-index: 1;
+    pointer-events: none; 
 }
-.social-media{
+/* PARTIE THREE */
+.three{
+    height: 93vh; 
+    width: 4%;
+    margin-bottom: 1rem;
+}
+.three .small{
     display: flex;
-    justify-content: flex-end;
     align-items: center;
-    position: absolute;
-    bottom: 0.5rem;
-    height: 8rem;
-    width: 82rem;
-    background-color: rgb(63, 58, 58);
-    border-radius: 1rem;
+    justify-content: center;
+    height: 10vh;
+    margin: 1rem 0;
+    background-color: yellow;
+    box-shadow: 0 0 15px rgb(133, 131, 131);
+    border-radius: 5rem;
 }
-.icon-social{
-    margin: 1rem;
+.three .big{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
+    height: 77vh;
+    background-color: white;
+    box-shadow: 0 0 15px rgb(133, 131, 131);
+    border-radius: 2rem;
+}
+
+.icon{
     font-size: 2.5rem;
-    color: white;
+    color: black;
+    margin-bottom: 2rem;
 }
-#youtub{
-    margin-right: 3rem;
+#small{
+    color: black;
+    font-size: 2.5rem;
 }
-/* .image img:hover{
-    height: 11rem;
-    width: 21rem;
-} */
