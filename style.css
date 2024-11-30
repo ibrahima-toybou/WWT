@@ -1,0 +1,113 @@
+body{
+    background-color: black;
+}
+.vertical{
+    position: fixed;
+    height: 51rem;
+    width: 5.5rem;
+    background-color: rgb(63, 58, 58);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* background-image: url(colorful-2174045_1280.webp);
+    background-size: cover; */
+}
+
+.vertical .icon{
+    margin-top: 2rem;
+    font-size: 2.5rem;
+    color: white;
+}
+/* .band{
+    height: 3rem;
+    width: 0.3rem;
+    background-color: rgb(63, 58, 58);
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+} */
+
+/* CORP DE LA PAGE */
+.containeur{
+    display: flex;
+    margin-left: 6rem;
+    height: 51rem;
+    width: 99rem;
+    
+}
+.big-carton{
+    height: 42.5rem;
+    width: 82rem;
+    background-color: rgb(63, 58, 58);
+    border-radius: 1rem;
+    background-image: url(image-fon.webp);
+    background-size: cover;
+}
+.small-carton{
+    margin-left: 0.5rem;
+    height: 51rem;
+    width: 16.5rem;
+}
+.first-carton{
+    height: 21rem;
+    width: 16.5rem;
+    background-color: rgb(63, 58, 58);
+    border-radius: 1rem;
+}
+.second-carton{
+    margin-top: 0.5rem;
+    height: 29.5rem;
+    width: 16.5rem;
+    background-color: rgb(63, 58, 58);
+    border-radius: 1rem;
+}
+.image{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.image img{
+    /* position: absolute; */
+    
+    /* margin-top: 0.5rem; */
+    
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 1rem;
+    /* box-shadow: 0 0 10px rgb(13, 14, 14),
+                0 0 20px rgb(17, 17, 17),
+                0 0 40px rgb(7, 7, 7),
+                0 0 80px rgb(5, 5, 5); */
+    cursor: pointer;
+    transition: 1s linear;
+}
+.social-media{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: absolute;
+    bottom: 0.5rem;
+    height: 8rem;
+    width: 82rem;
+    background-color: rgb(63, 58, 58);
+    border-radius: 1rem;
+}
+.icon-social{
+    margin: 1rem;
+    font-size: 2.5rem;
+    color: white;
+}
+#youtub{
+    margin-right: 3rem;
+}
+/* .image img:hover{
+    height: 11rem;
+    width: 21rem;
+} */
