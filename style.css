@@ -1,9 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: "Ubuntu Mono", monospace;
+    font-weight: 700;
+    font-style: normal;
+}
 body{
-    background-color: rgb(228, 209, 217);
+    background-color: rgb(102, 100, 101);
     padding: 2rem;
 }
 .container{
-    height: 93vh;
+    height: 92vh;
     width: 100%;
     border: 1px blue;
     display: flex;
@@ -34,29 +47,103 @@ body{
 .mini-carton-bas{
     height: 29vh;
 }
+@keyframes floatImage {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-0.8rem);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
 .carton-bas{
     margin-top: 2rem;
     background-color: white;
     border-radius: 2rem;
     height: 38vh;
     box-shadow: 0 0 15px rgb(133, 131, 131);
+    background-image: url(appareil.jpeg);
+    overflow: hidden;
+    color: rgb(201, 245, 8);
+    
+}
+.carton-bas .in{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.carton-bas .in h3{
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+.carton-bas .in ion-icon{
+    font-size: 2rem;
+    margin-right: 1rem;
+    animation: floatImage 2s ease-in-out infinite;
+    display: inline-block; 
+    transition:  .8s ease; 
 }
 /* PARTIE TWO */
+
 .two{
+    position: relative;
     height: 93vh; 
     width: 74%;
     background-color: white;
+    background-image: url(couv.jpg);
     border-radius: 2rem;
     box-shadow: 0 0 15px rgb(133, 131, 131);
     overflow: hidden;
+    
 }
-.video-background {
+.content{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    color: aliceblue;
+}
+@keyframes gradient {
+    0% {
+        color: white;
+    }
+    50% {
+        color: black;
+    }
+    100% {
+        color: yellow;
+    }
+}
+
+.content h2 {
+    margin-top: 14rem;
+    margin-bottom: 5rem;
+    font-size: 5rem;
+    text-shadow: 0 0 10px rgb(14, 147, 236),
+                 0 0 25px rgb(14, 147, 236),
+                 0 0 35px rgb(14, 147, 236),
+                 0 0 45px rgb(14, 147, 236);
+    transition: 2s ease-out;
+    animation: gradient 2s linear infinite;
+}
+.content img{
+    
+    font-size: 24rem;
+    transition: 2s ease-in-out;
+}
+/* .video-background {
     width: 100%;
     height: 100%;
     object-fit: cover;
     z-index: 1;
     pointer-events: none; 
-}
+} */
 /* PARTIE THREE */
 .three{
     height: 93vh; 
