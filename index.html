@@ -1,55 +1,378 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WWT</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <div class="one">
-            <div class="carton-haut">
-                <div class="mini-carton-haut"></div>
-                <div class="mini-carton-bas"></div>
-            </div>
-            <div class="carton-bas">
-                <div class="in">
-                    <h3>NOUS SUIVRE :</h3>
-                    <div class="social">
-                        <ion-icon name="logo-facebook"></ion-icon>
-                        <ion-icon name="logo-youtube"></ion-icon>
-                        <ion-icon name="logo-instagram"></ion-icon>
-                    </div>
-                </div>
-                
-            </div>
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wana wa Tsidjé</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="ring"></div>
+
+    <!-- ── NAV ── -->
+    <nav>
+      <a href="#" class="nav-brand">
+        <img src="WWT-blanc.jpeg" class="nav-logo-img" alt="Wana wa Tsidjé" />
+        <div>
+          <span class="nav-brand-label">Wana wa Tsidjé</span>
+          <span class="nav-brand-sub">Tsidjé · Comores</span>
         </div>
-        <div class="two">
-            <!-- <video autoplay muted loop class="video-background">
-                <source src="WWT.VIDEO.mp4" type="video/mp4">
-            </video> -->
-            <div class="content">
-                <h2>WELCOME!</h2>
-                <img src="img1.png" alt="image de font">
-        
-            </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#">Actualités</a></li>
+        <li><a href="#">Événements</a></li>
+        <li><a href="#">Diaspora</a></li>
+        <li><a href="#">Mariages</a></li>
+      </ul>
+      <a href="#" class="nav-cta">Suivre →</a>
+    </nav>
+
+    <!-- ── HERO ── -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-circle">
+        <img src="WWT-blanc.jpeg" class="hero-logo-big" alt="" />
+      </div>
+
+      <!-- Play button -->
+      <!-- <div class="hero-play">
+        <svg width="18" height="20" viewBox="0 0 18 20" fill="none">
+          <path d="M2 2L16 10L2 18V2Z" fill="#111" />
+        </svg>
+      </div> -->
+
+      <!-- Dot nav -->
+      <div class="hero-dot-nav">
+        <div class="hero-dot active"></div>
+        <div class="hero-dot"></div>
+        <div class="hero-dot"></div>
+      </div>
+
+      <!-- Info card (bottom right) -->
+      <div class="hero-card">
+        <div class="hero-card-label">En direct</div>
+        <p class="hero-card-text">
+          Restez connecté à Tsidjé — événements, culture et vie de la
+          communauté, en temps réel.
+        </p>
+        <a href="#" class="hero-card-link">Nous suivre <span>→</span></a>
+      </div>
+
+      <!-- Main content (bottom left) -->
+      <div class="hero-content">
+        <!-- <div class="hero-eyebrow">
+          <div class="live-pip">
+            <div class="live-pip-dot"></div>
+            Live
+          </div>
+          Tsidjé · Comores · Diaspora France
+        </div> -->
+        <h1 class="hero-title">
+          <span>Tout ce qui</span>
+          <span class="thin">se passe</span>
+          <span>à Tsidjé</span>
+        </h1>
+        <p class="hero-desc">
+          Actualités, événements culturels et religieux, projets de la ville —
+          partagés en direct avec la communauté au pays et en France.
+        </p>
+        <div class="hero-actions">
+          <a href="#" class="btn btn-dark btn-lg">
+            <span>Explorer</span>
+            <span class="btn-arr">→</span>
+          </a>
+          <a href="#" class="btn btn-outline btn-lg">Nos services</a>
+          <a href="#" class="btn btn-live-red btn-lg">
+            <div class="live-pip-dot" style="background: #fff"></div>
+            Live FB
+          </a>
         </div>
-        <div class="three">
-            <div class="small">
-                <ion-icon name="person-circle-outline"  id="small"></ion-icon>
-            </div>
-            <div class="big">
-                <ion-icon name="home-outline" class="icon"></ion-icon>
-                <ion-icon name="images-outline" class="icon"></ion-icon>
-                <ion-icon name="chatbox-outline" class="icon"></ion-icon>
-                <ion-icon name="cog-outline" class="icon"></ion-icon>
-            </div>
-            
-            
+      </div>
+    </section>
+
+    <!-- ── TICKER ── -->
+    <!-- <div class="ticker">
+      <div class="ticker-track">
+        <div class="ticker-item">
+          <b>Nouveau</b> <span class="ticker-sep">·</span> Événements Tsidjé
+          2025
         </div>
+        <div class="ticker-item">
+          <b>Facebook Live</b> <span class="ticker-sep">·</span> En direct
+          chaque semaine
+        </div>
+        <div class="ticker-item">
+          <b>Mariages</b> <span class="ticker-sep">·</span> Réservez notre
+          équipe
+        </div>
+        <div class="ticker-item">
+          <b>Diaspora France</b> <span class="ticker-sep">·</span> Communauté
+          active
+        </div>
+        <div class="ticker-item">
+          <b>100% Gratuit</b> <span class="ticker-sep">·</span> Pour toute la
+          communauté
+        </div>
+        <div class="ticker-item"><b>Instagram · TikTok · YouTube</b></div>
+        <div class="ticker-item">
+          <b>Nouveau</b> <span class="ticker-sep">·</span> Événements Tsidjé
+          2025
+        </div>
+        <div class="ticker-item">
+          <b>Facebook Live</b> <span class="ticker-sep">·</span> En direct
+          chaque semaine
+        </div>
+        <div class="ticker-item">
+          <b>Mariages</b> <span class="ticker-sep">·</span> Réservez notre
+          équipe
+        </div>
+        <div class="ticker-item">
+          <b>Diaspora France</b> <span class="ticker-sep">·</span> Communauté
+          active
+        </div>
+        <div class="ticker-item">
+          <b>100% Gratuit</b> <span class="ticker-sep">·</span> Pour toute la
+          communauté
+        </div>
+        <div class="ticker-item"><b>Instagram · TikTok · YouTube</b></div>
+      </div>
+    </div> -->
+
+    <!-- ── ACTIVITÉS ── -->
+    <section class="page-section reveal">
+      <div class="section-head">
+        <h2 class="section-title">Ce que nous <span>faisons</span></h2>
+        <a href="#" class="section-more">Tout voir →</a>
+      </div>
+      <div class="act-grid">
+        <div class="act-card featured d1">
+          <div class="act-num">01</div>
+          <div class="act-eyebrow">Activité principale</div>
+          <div class="act-title">Informer Tsidjé en direct</div>
+          <div class="act-desc">
+            Actualités locales, événements culturels et religieux, projets de
+            développement — tout partagé en temps réel avec les résidents et la
+            diaspora.
+          </div>
+          <div class="act-foot">
+            <a href="#" class="btn btn-dark btn-sm">Gratuit & ouvert →</a>
+          </div>
+        </div>
+        <div class="act-card d2">
+          <div class="act-num">02</div>
+          <div class="act-eyebrow">Culture & Religion</div>
+          <div class="act-title">Événements de la ville</div>
+          <div class="act-desc">
+            Fêtes religieuses, cérémonies traditionnelles, rassemblements
+            communautaires.
+          </div>
+        </div>
+        <div class="act-card d3">
+          <div class="act-num">03</div>
+          <div class="act-eyebrow">Développement</div>
+          <div class="act-title">La ville qui grandit</div>
+          <div class="act-desc">
+            Projets d'infrastructure, initiatives locales, tout ce qui fait
+            avancer Tsidjé.
+          </div>
+        </div>
+        <div class="act-card d2">
+          <div class="act-num">04</div>
+          <div class="act-eyebrow">Diaspora France</div>
+          <div class="act-title">Le lien entre deux rives</div>
+          <div class="act-desc">
+            Activités de la communauté Tsidjeenne en France, couvertes et
+            partagées en direct.
+          </div>
+        </div>
+        <div class="act-card d3">
+          <div class="act-num">05</div>
+          <div class="act-eyebrow">Information</div>
+          <div class="act-title">Rien que Tsidjé</div>
+          <div class="act-desc">
+            Une ligne éditoriale claire — uniquement ce qui concerne la ville et
+            ses habitants.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── LIVE BAND ── -->
+    <div class="live-band reveal">
+      <div class="live-badge">
+        <div class="live-icon-wrap">📺</div>
+        <div class="live-info">
+          <div class="live-name">
+            Facebook Live
+            <span class="live-chip"
+              ><div
+                class="live-pip-dot"
+                style="background: #fff; width: 4px; height: 4px"
+              ></div>
+              Direct</span
+            >
+          </div>
+          <div class="live-sub">Depuis Tsidjé ou depuis la diaspora</div>
+        </div>
+      </div>
+      <p class="live-desc">
+        Suivez nos lives pour ne rater aucun moment — mariages, cérémonies,
+        actualités en direct.
+      </p>
+      <a href="#" class="btn btn-ghost btn-lg">
+        <div
+          class="live-pip-dot"
+          style="background: #dc3232; width: 7px; height: 7px"
+        ></div>
+        Rejoindre le live
+      </a>
     </div>
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-</body>
+
+    <!-- ── MARIAGES ── -->
+    <section class="page-section reveal">
+      <div class="section-head">
+        <h2 class="section-title">Services <span>Mariage</span></h2>
+        <a href="#" class="section-more">Nous contacter →</a>
+      </div>
+      <div class="srv-grid">
+        <div class="srv-card d1">
+          <div class="srv-num">01</div>
+          <span class="srv-icon">📡</span>
+          <div class="srv-name">Live Facebook</div>
+          <div class="srv-desc">
+            Votre mariage diffusé en direct sur Facebook pour toute la famille —
+            au pays comme en France.
+          </div>
+        </div>
+        <div class="srv-card d2">
+          <div class="srv-num">02</div>
+          <span class="srv-icon">📸</span>
+          <div class="srv-name">Photos de l'événement</div>
+          <div class="srv-desc">
+            Couverture photographique complète, publiée sur notre page Facebook.
+          </div>
+          <div class="srv-opt">Archive photo disponible</div>
+        </div>
+        <div class="srv-card d3">
+          <div class="srv-num">03</div>
+          <span class="srv-icon">🎬</span>
+          <div class="srv-name">Archive Vidéo</div>
+          <div class="srv-desc">
+            Un film souvenir personnalisé pour revivre votre mariage — pour vous
+            et votre famille.
+          </div>
+          <div class="srv-opt">Option premium</div>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 36px">
+        <a href="#" class="btn btn-outline btn-lg">Réserver nos services →</a>
+      </div>
+    </section>
+
+    <!-- ── PLATEFORMES ── -->
+    <section class="page-section reveal" style="padding-top: 0">
+      <div class="section-head">
+        <h2 class="section-title">Nous <span>retrouver</span></h2>
+      </div>
+      <div class="plat-grid">
+        <div class="plat-card d1">
+          <span class="plat-emoji">📘</span>
+          <div class="plat-name">Facebook</div>
+          <div class="plat-handle">Wana wa Tsidjé</div>
+          <div class="plat-desc">
+            Lives, actualités, photos — notre plateforme principale
+          </div>
+        </div>
+        <div class="plat-card d2">
+          <span class="plat-emoji">▶️</span>
+          <div class="plat-name">YouTube</div>
+          <div class="plat-handle">Wana wa Tsidjé</div>
+          <div class="plat-desc">Replays des lives et contenus archivés</div>
+        </div>
+        <div class="plat-card d3">
+          <span class="plat-emoji">📸</span>
+          <div class="plat-name">Instagram</div>
+          <div class="plat-handle">@wanawatsidje</div>
+          <div class="plat-desc">
+            Photos et stories des événements de la ville
+          </div>
+        </div>
+        <div class="plat-card d4">
+          <span class="plat-emoji">🎵</span>
+          <div class="plat-name">TikTok</div>
+          <div class="plat-handle">@wanawatsidje</div>
+          <div class="plat-desc">
+            Moments forts et capsules de la vie à Tsidjé
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── QUOTE ── -->
+    <div class="quote-band reveal">
+      <p class="quote-text">
+        "Rester <strong>connecté à Tsidjé</strong>, où que l'on soit — c'est
+        notre engagement envers la communauté."
+      </p>
+      <p class="quote-attr">— Wana wa Tsidjé</p>
+    </div>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+      <div class="footer-inner">
+        <div>
+          <div class="f-logo-wrap">
+            <img src="WWT-blanc.jpeg" class="f-logo-img" alt="Logo" />
+            <div>
+              <span class="f-brand-name">Wana wa Tsidjé</span>
+              <span class="f-brand-sub"
+                >La voix de la ville · Tsidjé, Comores</span
+              >
+            </div>
+          </div>
+          <p class="f-desc">
+            Informer, connecter, préserver la mémoire de Tsidjé — au pays et en
+            diaspora.
+          </p>
+          <div class="f-social-row">
+            <a href="#" class="f-social-btn">📘 Facebook</a>
+            <a href="#" class="f-social-btn">▶️ YouTube</a>
+            <a href="#" class="f-social-btn">📸 Instagram</a>
+            <a href="#" class="f-social-btn">🎵 TikTok</a>
+          </div>
+        </div>
+        <div class="f-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#">Actualités</a></li>
+            <li><a href="#">Événements</a></li>
+            <li><a href="#">Diaspora France</a></li>
+            <li><a href="#">Développement</a></li>
+            <li><a href="#">Archives</a></li>
+          </ul>
+        </div>
+        <div class="f-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#">Live Mariage</a></li>
+            <li><a href="#">Photos Événement</a></li>
+            <li><a href="#">Archive Vidéo</a></li>
+            <li><a href="#">Nous contacter</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Wana wa Tsidjé — <span>Tsidjé, Comores</span></p>
+        <p>Fait avec ✦ pour la communauté</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
 </html>
