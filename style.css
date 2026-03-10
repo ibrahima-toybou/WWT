@@ -1,183 +1,1466 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    border: none;
-    outline: none;
-    scroll-behavior: smooth;
-    font-family: "Ubuntu Mono", monospace;
-    font-weight: 700;
-    font-style: normal;
+/* ═══════════════════════════════════════════════════════════════════ */
+/* STYLES DE BASE - Réinitialisation et configuration globale           */
+/* ═══════════════════════════════════════════════════════════════════ */
+:root {
+  --grey: #565353;
+  --red: #c6372c;
+  --white: #f5eff0;
+  --brown: #702e23;
+  --yellow: #e3be0c;
+  --dark: #111;
 }
-body{
-    background-color: rgb(102, 100, 101);
-    padding: 2rem;
-}
-.container{
-    height: 92vh;
-    width: 100%;
-    border: 1px blue;
-    display: flex;
-    justify-content: space-between;
-    
-}
-/* PARTIE ONE */
-.one{
-    
-    display: flex;
-    flex-direction: column;
-    height: 93vh; 
-    width: 19%;
-    
-    border-radius: 0.5rem;
-}
-.carton-haut{
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    border-radius: 2rem;
-    height: 69vh;
-    box-shadow: 0 0 15px rgb(133, 131, 131);
-}
-.mini-carton-haut{
-    height: 29vh;
-}
-.mini-carton-bas{
-    height: 29vh;
-}
-@keyframes floatImage {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-0.8rem);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
-.carton-bas{
-    margin-top: 2rem;
-    background-color: white;
-    border-radius: 2rem;
-    height: 38vh;
-    box-shadow: 0 0 15px rgb(133, 131, 131);
-    background-image: url(appareil.jpeg);
-    overflow: hidden;
-    color: rgb(201, 245, 8);
-    
-}
-.carton-bas .in{
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-}
-.carton-bas .in h3{
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-}
-.carton-bas .in ion-icon{
-    font-size: 2rem;
-    margin-right: 1rem;
-    animation: floatImage 2s ease-in-out infinite;
-    display: inline-block; 
-    transition:  .8s ease; 
-}
-/* PARTIE TWO */
-
-.two{
-    position: relative;
-    height: 93vh; 
-    width: 74%;
-    background-color: white;
-    background-image: url(couv.jpg);
-    border-radius: 2rem;
-    box-shadow: 0 0 15px rgb(133, 131, 131);
-    overflow: hidden;
-    
-}
-.content{
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    color: aliceblue;
-}
-@keyframes gradient {
-    0% {
-        color: white;
-    }
-    50% {
-        color: black;
-    }
-    100% {
-        color: yellow;
-    }
+*,
+*::before,
+*::after {
+  /* Réinitialiser les marges et padding par défaut du navigateur */
+  margin: 0;
+  padding: 0;
+  /* Inclure le padding et la bordure dans le calcul de la largeur/hauteur */
+  box-sizing: border-box;
 }
 
-.content h2 {
-    margin-top: 14rem;
-    margin-bottom: 5rem;
-    font-size: 5rem;
-    text-shadow: 0 0 10px rgb(14, 147, 236),
-                 0 0 25px rgb(14, 147, 236),
-                 0 0 35px rgb(14, 147, 236),
-                 0 0 45px rgb(14, 147, 236);
-    transition: 2s ease-out;
-    animation: gradient 2s linear infinite;
+html {
+  /* Activer le défilement lisse quand on clique sur les ancres */
+  scroll-behavior: smooth;
 }
-.content img{
-    
-    font-size: 24rem;
-    transition: 2s ease-in-out;
+
+body {
+  /* Couleur de fond principal du site */
+  background: var(--white);
+  /* Couleur du texte par défaut */
+  color: var(--dark);
+  /* Police principale pour tout le contenu */
+  font-family: "DM Sans", sans-serif;
+  /* Éviter le débordement horizontal */
+  overflow-x: hidden;
+  /* Masquer le curseur par défaut (remplacé par un curseur personnalisé) */
+  cursor: none;
 }
-/* .video-background {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 1;
-    pointer-events: none; 
+
+::selection {
+  /* Style du texte sélectionné au survol de la souris */
+  background: var(--dark);
+  color: var(--white);
+}
+
+::-webkit-scrollbar {
+  /* Épaisseur de la barre de défilement */
+  width: 3px;
+}
+
+::-webkit-scrollbar-track {
+  /* Couleur du fond de la barre de défilement */
+  background: var(--white);
+}
+
+::-webkit-scrollbar-thumb {
+  /* Couleur du curseur de défilement */
+  background: var(--grey);
+  border-radius: 10px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════ */
+/* CURSEUR PERSONNALISÉ - Implémenter un curseur personnalisé          */
+/* ═══════════════════════════════════════════════════════════════════ */
+
+.cursor {
+  /* Élément fixe qui suit la position de la souris */
+  position: fixed;
+  /* Petit point noir au centre du curseur */
+  width: 10px;
+  height: 10px;
+  background: var(--dark);
+  border-radius: 50%;
+  /* Ne pas intercepter les événements de la souris */
+  pointer-events: none;
+  z-index: 9999;
+  /* Centrer le point sur la position du curseur */
+  transform: translate(-50%, -50%);
+  /* Animation lisse des transitions de taille et couleur */
+  transition:
+    width 0.3s,
+    height 0.3s,
+    background 0.3s;
+}
+
+.cursor-ring {
+  /* Anneau extérieur du curseur personnalisé */
+  position: fixed;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(17, 17, 17, 0.3);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.4s ease,
+    height 0.4s ease,
+    border-color 0.3s;
+}
+
+body:hover .cursor,
+body:hover .cursor-ring {
+  /* Afficher le curseur personnalisé au survol */
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════════════ */
+/* NAVIGATION - Barre de navigation fixe en haut de la page             */
+/* ═══════════════════════════════════════════════════════════════════ */
+
+nav {
+  /* Barre fixée en haut de la page, visible à tout moment */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 500;
+  /* Disposition horizontale des éléments */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 40px;
+  height: 78px;
+  border-radius: 10px;
+  /* Fond semi-transparent avec effet de flou (glassmorphism) */
+  background: rgba(245, 245, 243, 0.82);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(17, 17, 17, 0.07);
+}
+
+.nav-brand {
+  /* Conteneur du logo et du nom de la marque */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.nav-logo-img {
+  /* Logo image dans la navigation */
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.nav-brand-label {
+  /* Titre principal de la marque */
+  font-family: "Rajdhani", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dark);
+  line-height: 1;
+}
+
+.nav-brand-sub {
+  /* Sous-titre de la marque (localisation) */
+  font-family: "DM Mono", monospace;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--grey);
+  display: block;
+  margin-top: 2px;
+}
+
+.nav-links {
+  /* Liste de liens principaux au centre */
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px;
+  /* border: 2px solid var(--dark); */
+  border-radius: 20px;
+  background: var(--grey);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links a {
+  /* Style des liens de navigation */
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--white);
+  text-decoration: none;
+  transition: color 0.2s;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+}
+
+.nav-links a:hover {
+  /* Effet au survol des liens */
+  color: var(--dark);
+  border-bottom-color: var(--dark);
+}
+
+.nav-cta {
+  /* Bouton d'appel à l'action (« Suivre ») */
+  font-family: "Rajdhani", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--dark);
+  padding: 10px 24px;
+  border-radius: 2px;
+  text-decoration: none;
+  border: 1px solid var(--dark);
+  transition: all 0.25s;
+  border-radius: 10px;
+}
+
+.nav-cta:hover {
+  /* Effet du bouton au survol */
+  background: transparent;
+  color: var(--dark);
+}
+
+/* ═══════════════════════════════════════════════════════════════════ */
+/* SECTION HÉRO - Grande bannière d'accueil avec contenu principal     */
+/* ═══════════════════════════════════════════════════════════════════ */
+
+.hero {
+  /* Conteneur principal de la section héro */
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  top: 10px;
+}
+
+.hero-bg {
+  /* Arrière-plan dégradé du héro */
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(245, 245, 243, 0.1) 0%,
+      rgba(245, 245, 243, 0.55) 100%
+    ),
+    linear-gradient(135deg, #e8e4dc 0%, #d8d4cc 30%, #e4e0d8 60%, #dcdad4 100%);
+  z-index: 0;
+}
+
+.hero-circle {
+  /* Grand cercle décoratif (style lunettes) */
+  position: absolute;
+  top: 56%;
+  left: 50%;
+  transform: translate(-28%, -54%);
+  width: 75vw;
+  height: 75vw;
+  max-width: 720px;
+  max-height: 720px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at 40% 38%,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(230, 226, 218, 0.7) 45%,
+    rgba(200, 196, 188, 0.3) 100%
+  );
+  box-shadow:
+    inset 0 0 80px rgba(255, 255, 255, 0.6),
+    0 0 0 1px rgba(200, 196, 188, 0.4),
+    0 40px 120px rgba(0, 0, 0, 0.08);
+  z-index: 1;
+}
+
+.hero-circle::before {
+  /* Anneau intérieur du cercle héro */
+  content: "";
+  position: absolute;
+  inset: 8%;
+  border-radius: 50%;
+  border: 1px solid rgba(180, 176, 168, 0.35);
+}
+
+.hero-circle::after {
+  /* Effet de réfraction sur le cercle */
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.6) 0%,
+    transparent 40%,
+    rgba(255, 255, 255, 0.2) 80%
+  );
+}
+
+.hero-logo-big {
+  /* Grand logo au centre du cercle héro */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 52vw;
+  border-radius: 50%;
+  max-width: 560px;
+  opacity: 0.9;
+  mix-blend-mode: normal;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+  pointer-events: none;
+  animation: logoBreath 6s ease-in-out infinite;
+  -webkit-mask-image: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 1) 60%,
+    rgba(0, 0, 0, 0.6) 75%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask-image: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 1) 60%,
+    rgba(0, 0, 0, 0.6) 75%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+@keyframes logoBreath {
+  /* Animation de respiration du logo */
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.15;
+    transform: translate(-50%, -50%) scale(1.01);
+  }
+}
+
+/* .hero-play { */
+/* Bouton de lecture au centre du héro */
+/* position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: none;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
 } */
-/* PARTIE THREE */
-.three{
-    height: 93vh; 
-    width: 4%;
-    margin-bottom: 1rem;
-}
-.three .small{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 10vh;
-    margin: 1rem 0;
-    background-color: yellow;
-    box-shadow: 0 0 15px rgb(133, 131, 131);
-    border-radius: 5rem;
-}
-.three .big{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 2rem;
-    height: 77vh;
-    background-color: white;
-    box-shadow: 0 0 15px rgb(133, 131, 131);
-    border-radius: 2rem;
+
+/* .hero-play:hover { */
+/* Effet du bouton au survol */
+/* transform: translate(-50%, -50%) scale(1.08);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+} */
+
+/* .hero-play svg { */
+/* Centrage de l'icône play */
+/* margin-left: 4px;
+} */
+
+.hero-card {
+  /* Carte d'information en bas à droite */
+  position: absolute;
+  bottom: 80px;
+  right: 48px;
+  z-index: 4;
+  background: var(--grey);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  padding: 20px 24px;
+  max-width: 240px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  animation: fadeUp 0.8s 0.9s both;
 }
 
-.icon{
-    font-size: 2.5rem;
-    color: black;
-    margin-bottom: 2rem;
+.hero-card-label {
+  /* Étiquette de la carte héro (« En direct ») */
+  font-family: "DM Mono", monospace;
+  font-size: 8px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
-#small{
-    color: black;
-    font-size: 2.5rem;
+
+.hero-card-label::before {
+  /* Ligne décorative avant l'étiquette */
+  content: "";
+  width: 16px;
+  height: 1px;
+  background: var(--grey);
+}
+
+.hero-card-text {
+  /* Texte de description de la carte */
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+
+.hero-card-link {
+  /* Lien avec flèche dans la carte */
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--dark);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.2s;
+}
+
+.hero-card-link:hover {
+  /* Animation du lien au survol */
+  gap: 10px;
+}
+
+.hero-dot-nav {
+  /* Navigation par points (défilement) */
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hero-dot {
+  /* Points individuels de navigation */
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--dark);
+  opacity: 0.25;
+  cursor: none;
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
+}
+
+.hero-dot.active {
+  /* Point actif de navigation */
+  opacity: 1;
+  transform: scale(1.3);
+}
+
+.hero-content {
+  /* Contenu principal du héro (texte et boutons) */
+  position: relative;
+  z-index: 4;
+  padding: 0 48px 52px;
+  max-width: 680px;
+  animation: fadeUp 0.9s 0.2s both;
+}
+
+.hero-eyebrow {
+  /* Surtitre du héro (localisation) */
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.live-pip {
+  /* Badge « Live » avec point clignotant */
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(220, 50, 50, 0.1);
+  border: 1px solid rgba(220, 50, 50, 0.25);
+  border-radius: 20px;
+  padding: 3px 9px;
+  color: var(--red);
+}
+
+.live-pip-dot {
+  /* Point rouge clignotant du badge live */
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--red);
+  animation: blink 1.2s step-end infinite;
+}
+
+@keyframes blink {
+  /* Animation de clignotement du point live */
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+h1.hero-title {
+  /* Titre principal du héro */
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(42px, 4vw, 86px);
+  font-weight: 700;
+  line-height: 0.95;
+  color: var(--dark);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+h1.hero-title span {
+  /* Chaque ligne du titre sur une nouvelle ligne */
+  display: block;
+}
+
+h1.hero-title .thin {
+  /* Partie fine du titre (poids réduit) */
+  font-weight: 400;
+  color: var(--grey);
+}
+
+.hero-desc {
+  /* Description du héro */
+  font-size: clamp(22px, 2.4vw, 16px);
+  font-weight: 300;
+  color: var(--grey);
+  line-height: 1.72;
+  max-width: 440px;
+  margin-bottom: 36px;
+}
+
+.hero-actions {
+  /* Conteneur des boutons d'action */
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* ═══════════════════════════════════════════════════════════════════ */
+/* SYSTÈME DE BOUTONS - Styles réutilisables pour tous les boutons     */
+/* ═══════════════════════════════════════════════════════════════════ */
+
+.btn {
+  /* Styles de base pour tous les boutons */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: none;
+  transition: all 0.28s cubic-bezier(0.34, 1.2, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.btn:active {
+  /* Effet de clic */
+  transform: scale(0.97);
+}
+
+.btn-lg {
+  /* Bouton grande taille */
+  padding: 15px 34px;
+  border-radius: 10px;
+}
+
+.btn-md {
+  /* Bouton taille moyenne */
+  padding: 11px 26px;
+  border-radius: 10px;
+}
+
+.btn-sm {
+  /* Bouton petite taille */
+  padding: 8px 18px;
+  border-radius: 10px;
+  font-size: 11px;
+}
+
+.btn-dark {
+  /* Bouton sombre (noir) */
+  background: var(--dark);
+  color: var(--white);
+  border: 1px solid var(--dark);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-dark:hover {
+  /* Effet bouton sombre au survol */
+  background: var(--dark);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+}
+
+.btn-outline {
+  /* Bouton avec contour transparent */
+  background: transparent;
+  color: var(--dark);
+  border: 1px solid rgba(17, 17, 17, 0.3);
+}
+
+.btn-outline:hover {
+  /* Effet bouton contour au survol */
+  border-color: var(--dark);
+  transform: translateY(-5px);
+}
+
+.btn-ghost {
+  /* Bouton translucide avec flou (glassmorphism) */
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  color: var(--dark);
+  border: 1px solid rgba(17, 17, 17, 0.12);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.btn-ghost:hover {
+  /* Effet bouton ghost au survol */
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn-live-red {
+  /* Bouton live rouge */
+  background: var(--red);
+  color: var(--white);
+  border: 1px solid var(--red);
+  box-shadow: 0 4px 20px rgba(220, 50, 50, 0.3);
+}
+
+.btn-live-red:hover {
+  /* Effet bouton live rouge au survol */
+  transform: translateY(-5px);
+  box-shadow: 0 8px 28px rgba(220, 50, 50, 0.45);
+}
+
+.btn-arr {
+  /* Flèche du bouton */
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════════════ */
+/* TICKER - Bande défilante avec messages publicités et actualités     */
+/* ═══════════════════════════════════════════════════════════════════ */
+
+.ticker {
+  /* Conteneur du ticker */
+  border-top: 1px solid rgba(17, 17, 17, 0.08);
+  border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+  overflow: hidden;
+  background: var(--white);
+  padding: 11px 0;
+}
+
+.ticker-track {
+  /* Bande de défilement du ticker */
+  display: inline-flex;
+  gap: 72px;
+  white-space: nowrap;
+  animation: tickerScroll 24s linear infinite;
+}
+
+@keyframes tickerScroll {
+  /* Animation du défilement continu du ticker */
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker-item {
+  /* Élément unique du ticker */
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--grey);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ticker-item b {
+  /* Texte en gras du ticker */
+  color: var(--dark);
+  font-weight: 400;
+}
+
+.ticker-sep {
+  /* Séparateur entre items */
+  color: var(--grey);
+}
+
+/* ═══════════════════════════════════════════════════════════════════ */
+/* SECTIONS DE CONTENU - Styles pour les sections principales          */
+/* ═══════════════════════════════════════════════════════════════════ */
+
+.page-section {
+  /* Conteneur de section avec largeur max et espacement */
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 88px 40px;
+}
+
+.section-head {
+  /* En-tête de section avec titre et lien */
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 52px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+}
+
+.section-title {
+  /* Titre de section */
+  font-family: "Rajdhani", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--dark);
+}
+
+.section-title span {
+  /* Partie colorée du titre de section */
+  color: var(--grey);
+  font-weight: 400;
+}
+
+.section-more {
+  /* Lien « Tout voir » de la section */
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--grey);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.section-more:hover {
+  /* Effet du lien au survol */
+  color: var(--dark);
+}
+
+/* ═══════════════════════════════════════════════════════════════════ */
+/* CARTES D'ACTIVITÉS - Grille de cartes pour les activités           */
+/* ═══════════════════════════════════════════════════════════════════ */
+
+.act-grid {
+  /* Grille de cartes d'activités */
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 14px;
+}
+
+.act-card {
+  /* Carte d'activité */
+  background: var(--white);
+  border: 1px solid rgba(17, 17, 17, 0.07);
+  border-radius: 4px;
+  padding: 34px 30px;
+  transition: all 0.3s cubic-bezier(0.34, 1.1, 0.64, 1);
+  cursor: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.act-card::before {
+  /* Ligne top de la carte au survol */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--dark);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.act-card:hover {
+  /* Effet de la carte au survol */
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+  border-color: rgba(17, 17, 17, 0.12);
+}
+
+.act-card:hover::before {
+  /* Animation de la ligne top au survol */
+  transform: scaleX(1);
+}
+
+.act-card.featured {
+  /* Carte d'activité en vedette (plus grande) */
+  grid-column: 1;
+  grid-row: 1/3;
+}
+
+.act-card.featured .act-num {
+  /* Numéro plus grand pour la carte vedette */
+  font-size: 56px;
+}
+
+.act-card.featured .act-title {
+  /* Titre plus grand pour la carte vedette */
+  font-size: 22px;
+  margin-bottom: 14px;
+}
+
+.act-card.featured .act-desc {
+  /* Description plus grande pour la carte vedette */
+  font-size: 15px;
+}
+
+.act-num {
+  /* Numéro de l'activité */
+  font-family: "Rajdhani", sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 14px;
+  letter-spacing: 0.02em;
+  transition: color 0.3s;
+}
+
+.act-card:hover .act-num {
+  /* Couleur du numéro au survol */
+  color: var(--white);
+}
+
+.act-eyebrow {
+  /* Petit titre au-dessus du numéro */
+  font-family: "DM Mono", monospace;
+  font-size: 8px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 8px;
+}
+
+.act-title {
+  /* Titre de l'activité */
+  font-family: "Rajdhani", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--dark);
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.act-desc {
+  /* Description de l'activité */
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--grey);
+  line-height: 1.72;
+}
+
+.act-foot {
+  /* Pied de carte avec bouton */
+  margin-top: 24px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════ */
+/* BANDE LIVE - Section informations live et engagement                 */
+/* ═══════════════════════════════════════════════════════════════════ */
+
+.live-band {
+  /* Conteneur de la bande live */
+  background: var(--dark);
+  padding: 52px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.live-band::before {
+  /* Cercle décoratif en arrière-plan */
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.03) 0%,
+    transparent 65%
+  );
+  pointer-events: none;
+}
+
+.live-badge {
+  /* Badge avec icône live */
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.live-icon-wrap {
+  /* Contenu de l'icône live */
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  position: relative;
+}
+
+.live-icon-wrap::after {
+  /* Onde animée autour de l'icône */
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  animation: liveRing 2.5s ease-out infinite;
+}
+
+@keyframes liveRing {
+  /* Animation de l'onde live */
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+}
+
+.live-name {
+  /* Nom du flux live */
+  font-family: "Rajdhani", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 3px;
+}
+
+.live-chip {
+  /* Badge avec indicateur live rouge */
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: "DM Mono", monospace;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  background: var(--red);
+  color: var(--white);
+  padding: 3px 9px;
+  border-radius: 20px;
+  vertical-align: middle;
+  margin-left: 8px;
+}
+
+.live-sub {
+  /* Sous-titre du flux live */
+  font-size: 14px;
+  font-style: italic;
+  color: var(--grey);
+}
+
+.live-desc {
+  /* Description du flux live */
+  font-size: 15px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--grey);
+  line-height: 1.7;
+  max-width: 420px;
+  flex: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════════════ */
+/* CARTES DE SERVICES - Grille de services proposés                    */
+/* ═══════════════════════════════════════════════════════════════════ */
+
+.srv-grid {
+  /* Grille de cartes de services */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.srv-card {
+  /* Carte de service */
+  background: var(--white);
+  border: 1px solid rgba(17, 17, 17, 0.07);
+  border-radius: 4px;
+  padding: 32px 26px;
+  transition: all 0.3s cubic-bezier(0.34, 1.1, 0.64, 1);
+  cursor: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.srv-card:hover {
+  /* Effet de la carte au survol */
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+}
+
+.srv-card::after {
+  /* Ligne du bas de la carte au survol */
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--dark);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.srv-card:hover::after {
+  /* Animation de la ligne au survol */
+  transform: scaleX(1);
+}
+
+.srv-num {
+  /* Numéro du service */
+  font-family: "Rajdhani", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  color: var(--grey);
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+
+.srv-icon {
+  /* Icône emoji du service */
+  font-size: 26px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.srv-name {
+  /* Nom du service */
+  font-family: "Rajdhani", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+
+.srv-desc {
+  /* Description du service */
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--grey);
+  line-height: 1.7;
+}
+
+.srv-opt {
+  /* Option ou note du service */
+  margin-top: 14px;
+  font-family: "DM Mono", monospace;
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--grey);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.srv-opt::before {
+  /* Flèche avant l'option */
+  content: "→";
+}
+
+/* ═══════════════════════════════════════════════════════════════════ */
+/* PLATEFORMES - Cartes de réseaux sociaux et plateformes              */
+/* ═══════════════════════════════════════════════════════════════════ */
+
+.plat-grid {
+  /* Grille des cartes de plateformes */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.plat-card {
+  /* Carte de plateforme */
+  background: var(--white);
+  border: 1px solid rgba(17, 17, 17, 0.07);
+  border-radius: 4px;
+  padding: 28px 22px;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.34, 1.1, 0.64, 1);
+  cursor: none;
+}
+
+.plat-card:hover {
+  /* Effet de la carte au survol */
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.07);
+  transform: translateY(-4px);
+  border-color: var(--dark);
+}
+
+.plat-emoji {
+  /* Emoji de la plateforme */
+  font-size: 26px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.plat-name {
+  /* Nom de la plateforme */
+  font-family: "Rajdhani", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dark);
+  margin-bottom: 4px;
+}
+
+.plat-handle {
+  /* Nom d'utilisateur sur la plateforme */
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: var(--grey);
+  margin-bottom: 10px;
+}
+
+.plat-desc {
+  /* Description de la plateforme */
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--grey);
+  line-height: 1.65;
+}
+
+/* ═══════════════════════════════════════════════════════════════════ */
+/* CITATION - Section avec citation inspirante                          */
+/* ═══════════════════════════════════════════════════════════════════ */
+
+.quote-band {
+  /* Conteneur de la citation */
+  background: var(--white);
+  border-top: 1px solid rgba(17, 17, 17, 0.07);
+  border-bottom: 1px solid rgba(17, 17, 17, 0.07);
+  padding: 88px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.quote-band::before {
+  /* Guillemet décoratif en arrière-plan */
+  content: '"';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -54%);
+  font-family: "Rajdhani", sans-serif;
+  font-size: 28vw;
+  color: rgba(17, 17, 17, 0.025);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.quote-text {
+  /* Texte de la citation */
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(20px, 2.8vw, 38px);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--dark);
+  max-width: 760px;
+  margin: 0 auto 18px;
+  line-height: 1.35;
+  position: relative;
+}
+
+.quote-text strong {
+  /* Parties en gras dans la citation */
+  font-style: normal;
+  font-weight: 500;
+  color: var(--dark);
+}
+
+.quote-attr {
+  /* Attribution de la citation */
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--grey);
+  position: relative;
+}
+
+/* ═══════════════════════════════════════════════════════════════════ */
+/* PIED DE PAGE - Footer avec liens et informations                    */
+/* ═══════════════════════════════════════════════════════════════════ */
+
+footer {
+  /* Conteneur du pied de page */
+  background: var(--dark);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.footer-inner {
+  /* Grille principale du pied de page */
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 64px 40px 40px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 56px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.f-logo-wrap {
+  /* Conteneur du logo du pied */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.f-logo-img {
+  /* Logo du pied de page */
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+  filter: invert(1);
+  opacity: 0.85;
+}
+
+.f-brand-name {
+  /* Nom de la marque dans le pied */
+  font-family: "Rajdhani", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--white);
+  display: block;
+}
+
+.f-brand-sub {
+  /* Sous-titre du pied de page */
+  font-family: "DM Mono", monospace;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+
+.f-desc {
+  /* Description de la marque (italique) */
+  font-size: 14px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--grey);
+  line-height: 1.75;
+  max-width: 280px;
+  margin-bottom: 24px;
+}
+
+.f-social-row {
+  /* Ligne de boutons réseaux sociaux */
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.f-social-btn {
+  /* Bouton réseau social */
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--grey);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px 14px;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.f-social-btn:hover {
+  /* Effet bouton réseau au survol */
+  border-color: rgba(255, 255, 255, 0.3);
+  color: var(--white);
+}
+
+.f-col h4 {
+  /* Titre de colonne du pied */
+  font-family: "Rajdhani", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.f-col ul {
+  /* Liste de lien du pied */
+  list-style: none;
+}
+
+.f-col li {
+  /* Élément de liste du pied */
+  margin-bottom: 9px;
+}
+
+.f-col a {
+  /* Lien dans le pied de page */
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--grey);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.f-col a:hover {
+  /* Effet lien au survol */
+  color: var(--white);
+}
+
+.footer-bottom {
+  /* Bas du pied de page avec copyright */
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 18px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-bottom p {
+  /* Texte du bas du pied */
+  font-family: "DM Mono", monospace;
+  font-size: 8px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+
+.footer-bottom span {
+  /* Couleur du texte dans le bas du pied */
+  color: var(--grey);
+}
+
+/* ═══════════════════════════════════════════════════════════════════ */
+/* ANIMATIONS - Animations et transitions réutilisables               */
+/* ═══════════════════════════════════════════════════════════════════ */
+
+@keyframes fadeUp {
+  /* Animation d'apparition vers le haut */
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  /* Classe pour les éléments révélés au défilement */
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.75s ease,
+    transform 0.75s ease;
+}
+
+.reveal.on {
+  /* Élément révélé (visible after scroll intersection) */
+  opacity: 1;
+  transform: none;
+}
+
+.d1 {
+  /* Délai d'animation pour le premier élément */
+  transition-delay: 0.08s;
+}
+
+.d2 {
+  /* Délai d'animation pour le deuxième élément */
+  transition-delay: 0.16s;
+}
+
+.d3 {
+  /* Délai d'animation pour le troisième élément */
+  transition-delay: 0.24s;
+}
+
+.d4 {
+  /* Délai d'animation pour le quatrième élément */
+  transition-delay: 0.32s;
 }
