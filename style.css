@@ -727,6 +727,123 @@ h1.hero-title .thin {
 .btn:hover .btn-arr {
   transform: translateX(4px);
 }
+:root {
+  --transition-spring: cubic-bezier(0.34, 1.2, 0.64, 1);
+  --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: none; /* ← curseur personnalisé */
+  transition: all 0.3s var(--transition-spring);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: scale(0.97) !important;
+}
+
+.btn-lg {
+  padding: 15px 34px;
+  border-radius: 10px;
+}
+.btn-md {
+  padding: 11px 26px;
+  border-radius: 10px;
+}
+.btn-sm {
+  padding: 8px 18px;
+  border-radius: 10px;
+  font-size: 11px;
+}
+
+.btn-dark {
+  background: var(--dark);
+  color: var(--white);
+  border: 1px solid var(--dark);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  will-change: transform;
+}
+
+/* Effet shimmer au hover */
+.btn-dark::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.08);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.btn-dark:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3);
+}
+
+.btn-dark:hover::after {
+  opacity: 1;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--dark);
+  border: 1px solid rgba(17, 17, 17, 0.3);
+}
+
+.btn-outline:hover {
+  border-color: var(--dark);
+  background: rgba(17, 17, 17, 0.04);
+  transform: translateY(-5px);
+}
+
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  color: var(--dark);
+  border: 1px solid rgba(17, 17, 17, 0.12);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.btn-live-red {
+  background: var(--red);
+  color: var(--white);
+  border: 1px solid var(--red);
+  box-shadow: 0 4px 20px rgba(198, 55, 44, 0.3);
+  will-change: transform;
+}
+
+.btn-live-red:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(198, 55, 44, 0.5);
+}
+
+/* Flèche animée */
+.btn-arr {
+  font-size: 16px;
+  line-height: 1;
+  transition: transform 0.25s var(--transition-spring);
+}
+
+.btn:hover .btn-arr {
+  transform: translateX(4px);
+}
 
 /* ═══════════════════════════════════════════════════════════════════ */
 /* TICKER - Bande défilante avec messages publicités et actualités     */
