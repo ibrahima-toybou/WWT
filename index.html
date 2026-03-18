@@ -145,61 +145,103 @@
     </div> -->
 
     <!-- ── ACTIVITÉS ── -->
-    <section class="page-section reveal">
+    <section
+      class="page-section reveal"
+      id="activites"
+      aria-labelledby="act-title"
+    >
       <div class="section-head">
-        <h2 class="section-title">Ce que nous <span>faisons</span></h2>
-        <a href="#" class="section-more">Tout voir →</a>
+        <h2 class="section-title" id="act-title">
+          Ce que nous <span>faisons</span>
+        </h2>
+        <a href="#" class="section-more" aria-label="Voir toutes les activités"
+          >Tout voir →</a
+        >
       </div>
       <div class="act-grid">
-        <div class="act-card featured d1">
-          <div class="act-num">01</div>
-          <div class="act-eyebrow">Activité principale</div>
-          <div class="act-title">Informer Tsidjé en direct</div>
+        <!-- Carte featured -->
+        <article class="act-card featured d1" tabindex="0">
+          <div class="act-card-bg-num" aria-hidden="true">01</div>
+          <div class="act-tag">Activité principale</div>
+          <div class="act-title">Informer Tsidjé<br />en direct</div>
           <div class="act-desc">
             Actualités locales, événements culturels et religieux, projets de
             développement — tout partagé en temps réel avec les résidents et la
             diaspora.
           </div>
-          <div class="act-foot">
-            <a href="#" class="btn btn-dark btn-sm">Gratuit & ouvert →</a>
+          <div class="act-stats">
+            <div class="act-stat">
+              <span class="act-stat-num" data-target="4800">0</span>
+              <span class="act-stat-label">Abonnés</span>
+            </div>
+            <div class="act-stat">
+              <span class="act-stat-num" data-target="120">0</span>
+              <span class="act-stat-label">Événements couverts</span>
+            </div>
+            <div class="act-stat">
+              <span class="act-stat-num" data-target="3">0</span>
+              <span class="act-stat-label">Années actif</span>
+            </div>
           </div>
-        </div>
-        <div class="act-card d2">
-          <div class="act-num">02</div>
-          <div class="act-eyebrow">Culture & Religion</div>
-          <div class="act-title">Événements de la ville</div>
+          <div class="act-foot">
+            <a href="#" class="btn btn-dark btn-sm"
+              >Gratuit & ouvert
+              <span class="btn-arr" aria-hidden="true">→</span></a
+            >
+          </div>
+        </article>
+
+        <!-- Carte 02 -->
+        <article class="act-card d2" tabindex="0">
+          <div class="act-card-bg-num" aria-hidden="true">02</div>
+          <div class="act-card-icon" aria-hidden="true">🕌</div>
+          <div class="act-tag">Culture & Religion</div>
+          <div class="act-title">Événements<br />de la ville</div>
           <div class="act-desc">
             Fêtes religieuses, cérémonies traditionnelles, rassemblements
             communautaires.
           </div>
-        </div>
-        <div class="act-card d3">
-          <div class="act-num">03</div>
-          <div class="act-eyebrow">Développement</div>
-          <div class="act-title">La ville qui grandit</div>
+          <div class="act-card-line" aria-hidden="true"></div>
+        </article>
+
+        <!-- Carte 03 -->
+        <article class="act-card d3" tabindex="0">
+          <div class="act-card-bg-num" aria-hidden="true">03</div>
+          <div class="act-card-icon" aria-hidden="true">🏗️</div>
+          <div class="act-tag">Développement</div>
+          <div class="act-title">La ville<br />qui grandit</div>
           <div class="act-desc">
             Projets d'infrastructure, initiatives locales, tout ce qui fait
             avancer Tsidjé.
           </div>
-        </div>
-        <div class="act-card d2">
-          <div class="act-num">04</div>
-          <div class="act-eyebrow">Diaspora France</div>
-          <div class="act-title">Le lien entre deux rives</div>
+          <div class="act-card-line" aria-hidden="true"></div>
+        </article>
+
+        <!-- Carte 04 -->
+        <article class="act-card d2" tabindex="0">
+          <div class="act-card-bg-num" aria-hidden="true">04</div>
+          <div class="act-card-icon" aria-hidden="true">✈️</div>
+          <div class="act-tag">Diaspora France</div>
+          <div class="act-title">Le lien entre<br />deux rives</div>
           <div class="act-desc">
             Activités de la communauté Tsidjeenne en France, couvertes et
             partagées en direct.
           </div>
-        </div>
-        <div class="act-card d3">
-          <div class="act-num">05</div>
-          <div class="act-eyebrow">Information</div>
-          <div class="act-title">Rien que Tsidjé</div>
+          <div class="act-card-line" aria-hidden="true"></div>
+        </article>
+
+        <!-- Carte 05 -->
+        <article class="act-card d3" tabindex="0">
+          <div class="act-card-bg-num" aria-hidden="true">05</div>
+          <div class="act-card-icon" aria-hidden="true">📰</div>
+          <div class="act-tag">Information</div>
+          <div class="act-title">Rien que<br />Tsidjé</div>
           <div class="act-desc">
             Une ligne éditoriale claire — uniquement ce qui concerne la ville et
             ses habitants.
           </div>
-        </div>
+          <div class="act-card-line" aria-hidden="true"></div>
+        </article>
       </div>
     </section>
 

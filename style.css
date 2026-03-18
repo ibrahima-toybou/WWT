@@ -957,7 +957,6 @@ h1.hero-title .thin {
 /* ═══════════════════════════════════════════════════════════════════ */
 
 .act-grid {
-  /* Grille de cartes d'activités */
   display: grid;
   grid-template-columns: 1.4fr 1fr 1fr;
   grid-template-rows: auto auto;
@@ -965,84 +964,102 @@ h1.hero-title .thin {
 }
 
 .act-card {
-  /* Carte d'activité */
   background: var(--white);
   border: 1px solid rgba(17, 17, 17, 0.07);
   border-radius: 10px;
   padding: 34px 30px;
-  transition: all 0.3s cubic-bezier(0.34, 1.1, 0.64, 1);
-  cursor: pointer;
+  transition:
+    transform 0.35s var(--transition-spring),
+    box-shadow 0.35s ease,
+    border-color 0.25s ease;
+  cursor: none;
   position: relative;
   overflow: hidden;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
 .act-card::before {
-  /* Ligne top de la carte au survol */
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 2px;
-  background: var(--dark);
+  background: linear-gradient(90deg, var(--dark), var(--grey));
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.35s ease;
+  transition: transform 0.4s var(--transition-smooth);
+}
+
+/* Shimmer effect on hover */
+.act-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: left 0.6s ease;
+  pointer-events: none;
 }
 
 .act-card:hover {
-  /* Effet de la carte au survol */
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
-  transform: translateY(-4px);
-  border-color: rgba(17, 17, 17, 0.12);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
+  border-color: rgba(17, 17, 17, 0.15);
 }
 
 .act-card:hover::before {
-  /* Animation de la ligne top au survol */
   transform: scaleX(1);
 }
 
+.act-card:hover::after {
+  left: 150%;
+}
+
 .act-card.featured {
-  /* Carte d'activité en vedette (plus grande) */
   grid-column: 1;
   grid-row: 1/3;
 }
 
 .act-card.featured .act-num {
-  /* Numéro plus grand pour la carte vedette */
   font-size: 56px;
 }
 
 .act-card.featured .act-title {
-  /* Titre plus grand pour la carte vedette */
   font-size: 22px;
   margin-bottom: 14px;
 }
 
 .act-card.featured .act-desc {
-  /* Description plus grande pour la carte vedette */
   font-size: 15px;
 }
 
 .act-num {
-  /* Numéro de l'activité */
   font-family: "Rajdhani", sans-serif;
   font-size: 40px;
   font-weight: 700;
-  color: var(--white);
+  color: rgba(17, 17, 17, 0.1);
   line-height: 1;
   margin-bottom: 14px;
   letter-spacing: 0.02em;
-  transition: color 0.3s;
+  transition:
+    color 0.3s ease,
+    transform 0.3s var(--transition-spring);
 }
 
 .act-card:hover .act-num {
-  /* Couleur du numéro au survol */
-  color: var(--white);
+  color: rgba(17, 17, 17, 0.18);
+  transform: translateX(4px);
 }
 
 .act-eyebrow {
-  /* Petit titre au-dessus du numéro */
   font-family: "DM Mono", monospace;
   font-size: 10px;
   letter-spacing: 0.25em;
@@ -1052,7 +1069,6 @@ h1.hero-title .thin {
 }
 
 .act-title {
-  /* Titre de l'activité */
   font-family: "Rajdhani", sans-serif;
   font-size: 20px;
   font-weight: 600;
@@ -1061,10 +1077,14 @@ h1.hero-title .thin {
   color: var(--dark);
   margin-bottom: 10px;
   line-height: 1.2;
+  transition: letter-spacing 0.25s ease;
+}
+
+.act-card:hover .act-title {
+  letter-spacing: 0.06em;
 }
 
 .act-desc {
-  /* Description de l'activité */
   font-size: 16px;
   font-weight: 300;
   color: var(--grey);
@@ -1072,10 +1092,230 @@ h1.hero-title .thin {
 }
 
 .act-foot {
-  /* Pied de carte avec bouton */
   margin-top: 24px;
+} /* ── ACTIVITÉS REDESIGN ── */
+
+.act-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 14px;
 }
 
+.act-card {
+  background: var(--white);
+  border: 1px solid rgba(17, 17, 17, 0.07);
+  border-radius: 14px;
+  padding: 32px 28px;
+  position: relative;
+  overflow: hidden;
+  cursor: none;
+  transition:
+    transform 0.4s var(--transition-spring),
+    box-shadow 0.4s ease,
+    border-color 0.3s ease;
+  will-change: transform;
+}
+
+.act-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 56px rgba(0, 0, 0, 0.11);
+  border-color: rgba(17, 17, 17, 0.18);
+}
+
+/* Barre top */
+.act-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--dark), var(--grey));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s var(--transition-smooth);
+}
+.act-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Numéro fantôme en arrière-plan */
+.act-card-bg-num {
+  position: absolute;
+  bottom: -10px;
+  right: 14px;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 100px;
+  font-weight: 700;
+  color: rgba(17, 17, 17, 0.05);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  transition:
+    color 0.3s ease,
+    transform 0.4s var(--transition-spring);
+}
+.act-card:hover .act-card-bg-num {
+  color: rgba(17, 17, 17, 0.09);
+  transform: scale(1.05) translateX(-4px);
+}
+
+/* Tag / eyebrow */
+.act-tag {
+  display: inline-flex;
+  align-items: center;
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--grey);
+  background: rgba(17, 17, 17, 0.05);
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  border-radius: 20px;
+  padding: 4px 10px;
+  margin-bottom: 16px;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+.act-card:hover .act-tag {
+  background: var(--dark);
+  color: var(--white);
+  border-color: var(--dark);
+}
+
+/* Icône */
+.act-card-icon {
+  font-size: 28px;
+  margin-bottom: 12px;
+  display: block;
+  transition: transform 0.4s var(--transition-spring);
+}
+.act-card:hover .act-card-icon {
+  transform: scale(1.15) rotate(-5deg);
+}
+
+/* Titre */
+.act-title {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--dark);
+  line-height: 1.15;
+  margin-bottom: 10px;
+  transition: letter-spacing 0.25s ease;
+}
+.act-card:hover .act-title {
+  letter-spacing: 0.07em;
+}
+
+/* Carte featured — overrides */
+.act-card.featured {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+.act-card.featured .act-title {
+  font-size: 26px;
+  margin-bottom: 14px;
+}
+.act-card.featured .act-desc {
+  font-size: 15px;
+}
+.act-card.featured .act-card-bg-num {
+  font-size: 140px;
+  bottom: -18px;
+}
+
+.act-desc {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--grey);
+  line-height: 1.75;
+  margin-bottom: 0;
+}
+
+.act-foot {
+  margin-top: 28px;
+}
+
+/* Ligne décorative bas */
+.act-card-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--dark) 0%, transparent 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s var(--transition-smooth);
+}
+.act-card:hover .act-card-line {
+  transform: scaleX(1);
+}
+
+/* Stats de la carte featured */
+.act-stats {
+  display: flex;
+  gap: 0;
+  margin: 28px 0 24px;
+  border-top: 1px solid rgba(17, 17, 17, 0.08);
+  border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+  padding: 16px 0;
+}
+
+.act-stat {
+  flex: 1;
+  text-align: center;
+  padding: 0 8px;
+  position: relative;
+}
+
+.act-stat + .act-stat::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10%;
+  bottom: 10%;
+  width: 1px;
+  background: rgba(17, 17, 17, 0.1);
+}
+
+.act-stat-num {
+  display: block;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--dark);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.act-stat-label {
+  display: block;
+  font-family: "DM Mono", monospace;
+  font-size: 8px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .act-grid {
+    grid-template-columns: 1fr;
+  }
+  .act-card.featured {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .act-card.featured .act-card-bg-num {
+    font-size: 100px;
+  }
+}
 /* ═══════════════════════════════════════════════════════════════════ */
 /* BANDE LIVE - Section informations live et engagement                 */
 /* ═══════════════════════════════════════════════════════════════════ */
