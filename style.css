@@ -215,7 +215,7 @@ nav:hover {
 
 .nav-links a:hover {
   color: var(--dark);
-  border-bottom-color: var(--white);
+
   transform: translateY(-1px);
 }
 
@@ -488,7 +488,7 @@ nav:hover {
   border-radius: 50%;
   background: var(--dark);
   opacity: 0.25;
-  cursor: none;
+  cursor: pointer;
   transition:
     opacity 0.2s,
     transform 0.2s;
