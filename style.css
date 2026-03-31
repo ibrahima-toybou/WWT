@@ -743,7 +743,7 @@ h1.hero-title .thin {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   text-decoration: none;
-  cursor: none; /* ← curseur personnalisé */
+  cursor: pointer; /* ← curseur personnalisé */
   transition: all 0.3s var(--transition-spring);
   position: relative;
   overflow: hidden;
