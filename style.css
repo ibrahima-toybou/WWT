@@ -1129,6 +1129,33 @@ h1.hero-title .thin {
     font-size: 18px;
   }
 }
+/* Mettre la première carte de valeur en "featured" */
+.about-val-card:first-child {
+  background: var(--dark);
+  border-color: var(--dark);
+}
+.about-val-card:first-child .about-val-name,
+.about-val-card:first-child .about-val-desc,
+.about-val-card:first-child .about-val-num {
+  color: var(--white);
+}
+.about-val-card:first-child .about-val-desc {
+  color: rgba(245, 239, 240, 0.55);
+}
+.about-val-card:first-child .about-val-bg-num {
+  color: rgba(255, 255, 255, 0.06);
+}
+
+/* Accentuer la mission avec une ligne rouge à gauche */
+.about-mission-left {
+  padding-left: 24px;
+  border-left: 3px solid var(--red);
+}
+
+/* Agrandir le texte de mission — c'est la déclaration centrale */
+.about-mission-text {
+  font-size: 26px;
+}
 /* ═══════════════════════════════════════════════════════════════════ */
 /* SECTIONS DE CONTENU - Styles pour les sections principales          */
 /* ═══════════════════════════════════════════════════════════════════ */
