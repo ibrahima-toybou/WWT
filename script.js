@@ -83,3 +83,12 @@ const io = new IntersectionObserver(
 
 // Observer tous les éléments avec la classe "reveal"
 document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+document.querySelectorAll(".filter-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    document
+      .querySelectorAll(".filter-btn")
+      .forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+  });
+});
