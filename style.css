@@ -1315,6 +1315,22 @@ h1.hero-title .thin {
     grid-row: span 1;
   }
 }
+.gallery-item {
+  transition:
+    opacity 0.35s ease,
+    transform 0.4s var(--transition-spring);
+}
+
+.gallery-item.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.96);
+  /* On garde la place dans la grille pendant l'anim */
+}
+
+.gallery-item.gone {
+  display: none;
+}
 /* ═══════════════════════════════════════════════════════════════════ */
 /* SECTIONS DE CONTENU - Styles pour les sections principales          */
 /* ═══════════════════════════════════════════════════════════════════ */
