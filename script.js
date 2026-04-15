@@ -92,3 +92,44 @@ document.querySelectorAll(".filter-btn").forEach((btn) => {
     btn.classList.add("active");
   });
 });
+// ── GALERIE FILTRES ──
+const filterBtns = /** @type {NodeListOf<HTMLElement>} */ (
+  document.querySelectorAll(".filter-btn")
+);
+const galleryItems = /** @type {NodeListOf<HTMLElement>} */ (
+  document.querySelectorAll(".gallery-item")
+);
+
+filterBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    filterBtns.forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    const filter = btn.dataset.filter;
+
+    galleryItems.forEach((item) => {
+      const category = item.dataset.category;
+      const match = filter === "all" || category === filter;
+
+      if (match) {
+        item.classList.remove("gone");
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            item.classList.remove("hidden");
+          });
+        });
+      } else {
+        item.classList.add("hidden");
+        item.addEventListener(
+          "transitionend",
+          () => {
+            if (item.classList.contains("hidden")) {
+              item.classList.add("gone");
+            }
+          },
+          { once: true },
+        );
+      }
+    });
+  });
+});
