@@ -230,30 +230,24 @@
     </section>
 
     <!-- ── GALERIE ── -->
-    <section
-      class="page-section gallery-section reveal"
-      id="galerie"
-      aria-labelledby="gallery-title"
-    >
+    <section class="page-section gallery-section reveal" id="galerie">
       <div class="section-head">
-        <h2 class="section-title" id="gallery-title">
-          Notre <span>Galerie</span>
-        </h2>
+        <h2 class="section-title">Notre <span>Galerie</span></h2>
         <a href="#" class="section-more">Tout voir →</a>
       </div>
 
       <div class="gallery-filters">
-        <button class="filter-btn active">Tout</button>
-        <button class="filter-btn">Événements</button>
-        <button class="filter-btn">Mariages</button>
-        <button class="filter-btn">Diaspora</button>
-        <button class="filter-btn">Culture</button>
+        <button class="filter-btn active" data-filter="all">Tout</button>
+        <button class="filter-btn" data-filter="evenement">Événements</button>
+        <button class="filter-btn" data-filter="mariage">Mariages</button>
+        <button class="filter-btn" data-filter="diaspora">Diaspora</button>
+        <button class="filter-btn" data-filter="culture">Culture</button>
       </div>
 
       <div class="gallery-grid">
-        <div class="gallery-item tall">
+        <div class="gallery-item tall" data-category="evenement">
           <div class="gallery-card">
-            <img src="p7.jpg" alt="Événement Tsidjé" class="gallery-img" />
+            <img src="p7.jpg" alt="" class="gallery-img" />
             <span class="gallery-num">01</span>
             <div class="gallery-overlay">
               <div class="gallery-overlay-tag">Événement · 2025</div>
@@ -262,7 +256,7 @@
           </div>
         </div>
 
-        <div class="gallery-item">
+        <div class="gallery-item" data-category="mariage">
           <div class="gallery-card">
             <img src="p7.jpg" alt="" class="gallery-img" />
             <span class="gallery-num">02</span>
@@ -273,7 +267,7 @@
           </div>
         </div>
 
-        <div class="gallery-item">
+        <div class="gallery-item" data-category="culture">
           <div class="gallery-card">
             <img src="p7.jpg" alt="" class="gallery-img" />
             <span class="gallery-num">03</span>
@@ -284,7 +278,7 @@
           </div>
         </div>
 
-        <div class="gallery-item wide">
+        <div class="gallery-item wide" data-category="diaspora">
           <div class="gallery-card">
             <img src="p7.jpg" alt="" class="gallery-img" />
             <span class="gallery-num">04</span>
@@ -295,7 +289,7 @@
           </div>
         </div>
 
-        <div class="gallery-item">
+        <div class="gallery-item" data-category="evenement">
           <div class="gallery-card">
             <img src="p7.jpg" alt="" class="gallery-img" />
             <span class="gallery-num">05</span>
