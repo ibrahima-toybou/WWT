@@ -1315,6 +1315,7 @@ h1.hero-title .thin {
     grid-row: span 1;
   }
 }
+/* animation de disparition/apparition */
 .gallery-item {
   transition:
     opacity 0.35s ease,
