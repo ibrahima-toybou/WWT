@@ -1298,6 +1298,300 @@ h1.hero-title .thin {
 .gallery-item.gone {
   display: none;
 }
+/* ── SERVICES MARIAGE REDESIGN ── */
+.srv-eyebrow {
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.srv-eyebrow::before {
+  content: "";
+  width: 20px;
+  height: 1px;
+  background: var(--grey);
+}
+
+.srv-grid {
+  grid-template-columns: 1.6fr 1fr 1fr;
+}
+
+.srv-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 14px;
+  padding: 28px 24px;
+}
+
+/* Carte featured sombre */
+.srv-card.srv-featured {
+  background: var(--dark);
+  border-color: var(--dark);
+}
+.srv-card.srv-featured .srv-num {
+  color: rgba(255, 255, 255, 0.2);
+}
+.srv-card.srv-featured .srv-name {
+  color: var(--white);
+}
+.srv-card.srv-featured .srv-desc {
+  color: rgba(245, 239, 240, 0.45);
+}
+.srv-card.srv-featured::after {
+  background: var(--red);
+}
+
+/* Icône wrapper */
+.srv-icon-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  color: rgba(255, 255, 255, 0.7);
+  flex-shrink: 0;
+}
+.srv-icon-light {
+  background: rgba(17, 17, 17, 0.04);
+  border-color: rgba(17, 17, 17, 0.08);
+  color: var(--grey);
+}
+
+/* Badges */
+.srv-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 3px 10px;
+  margin-bottom: 12px;
+  width: fit-content;
+}
+.srv-badge-live {
+  background: var(--red);
+  color: var(--white);
+}
+.srv-badge-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #fff;
+  animation: blink 1.2s step-end infinite;
+}
+.srv-badge-premium {
+  background: rgba(227, 190, 12, 0.12);
+  color: #7a640a;
+  border: 1px solid rgba(227, 190, 12, 0.35);
+}
+
+/* Divider */
+.srv-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 18px 0;
+}
+.srv-divider-light {
+  background: rgba(17, 17, 17, 0.07);
+}
+
+/* Checks */
+.srv-checks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+.srv-check-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.01em;
+}
+.srv-checks-light .srv-check-row {
+  color: var(--grey);
+}
+.srv-check-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  flex-shrink: 0;
+  position: relative;
+}
+.srv-check-dot::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+}
+.srv-check-dot-light {
+  background: rgba(17, 17, 17, 0.04);
+  border-color: rgba(17, 17, 17, 0.1);
+}
+.srv-check-dot-light::after {
+  background: rgba(17, 17, 17, 0.3);
+}
+
+/* Footer de carte */
+.srv-footer {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.srv-footer-light {
+  border-top-color: rgba(17, 17, 17, 0.07);
+}
+.srv-footer-label {
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.25);
+}
+.srv-footer-light .srv-footer-label {
+  color: var(--grey);
+}
+.srv-footer-val {
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.55);
+}
+.srv-footer-light .srv-footer-val {
+  color: var(--dark);
+}
+
+/* CTA barre */
+.srv-cta-bar {
+  margin-top: 14px;
+  padding: 20px 28px;
+  background: var(--white);
+  border: 1px solid rgba(17, 17, 17, 0.07);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.srv-cta-text {
+  font-size: 14px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--grey);
+  line-height: 1.6;
+}
+
+/* ── IMAGES SUR CARTES MARIAGE ── */
+.srv-img-wrap {
+  width: calc(100% + 56px); /* déborde du padding de la carte */
+  margin: -32px -28px 22px -28px;
+  overflow: hidden;
+  position: relative;
+  height: 240px; /* featured */
+  border-radius: 14px 14px 0 0;
+}
+
+.srv-img-sm {
+  height: 160px; /* cartes secondaires */
+}
+
+.srv-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+  filter: brightness(0.9);
+}
+
+.act-card:hover .srv-img {
+  transform: scale(1.04);
+}
+
+.srv-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(17, 17, 17, 0.5) 0%,
+    transparent 55%
+  );
+}
+
+/* Badge live rouge */
+.act-tag-live {
+  background: rgba(198, 55, 44, 0.1);
+  border-color: rgba(198, 55, 44, 0.25);
+  color: #c6372c;
+  gap: 6px;
+}
+.act-card:hover .act-tag-live {
+  background: var(--red);
+  color: var(--white);
+  border-color: var(--red);
+}
+.act-card:hover .act-tag-live .live-pip-dot {
+  background: #fff;
+}
+
+/* Option premium text */
+.srv-opt {
+  margin-top: 14px;
+  font-family: "DM Mono", monospace;
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--grey);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.srv-opt::before {
+  content: "→";
+}
+
+/* Barre CTA bas */
+.srv-cta-bar {
+  margin-top: 14px;
+  padding: 20px 28px;
+  background: var(--white);
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.srv-cta-text {
+  font-size: 14px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--grey);
+  line-height: 1.6;
+}
 /* ═══════════════════════════════════════════════════════════════════ */
 /* SECTIONS DE CONTENU - Styles pour les sections principales          */
 /* ═══════════════════════════════════════════════════════════════════ */
